@@ -1,0 +1,7 @@
+@import './globalVars.css';
+
+.Icon{
+    width: 1rem;
+    height: 1rem;
+    fill: var(--text-primary-color);
+}

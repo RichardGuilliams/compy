@@ -1,0 +1,94 @@
+:root{
+    --no-color: rgba(40, 212, 239, 0);
+    --primary-color: rgb(40, 212, 239);
+    --text-primary-color: rgb(255, 255, 255);
+    --text-secondary-color: rgb(171, 171, 171);
+    --text-placeholder-color: rgb(255, 255, 255);
+    --secondary-color: rgb(59, 243, 114);
+    --cardColor: rgba(0, 0, 0, 0.234);
+    --primary-border-radius: 10px;
+
+    --font-size-smallest: 1rem;
+    --form-section-font-size: 1rem;
+    
+    --gradient:  linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    
+    --button-border-radius: 1000px;
+    --buttonMargin: 1rem 0rem 1.25rem 0rem;
+    
+    --page-background-color: rgb(117, 255, 241);
+    /* --page-padding: rgb(117, 255, 241); */
+    
+    --button-background-color: rgb(96, 43, 255);
+    
+    --form-background-color: var(--primary-color);
+    --form-padding: 2.5rem;
+    --form-margin:  0rem auto auto auto;
+    --form-width: 70dvw;
+    
+    --header-font-size: 3rem;
+    --header-padding: .5rem 0rem 1.5rem 0rem;
+    --header-margin: auto;
+    
+    --form-element-margin: .5rem 0rem;
+    --form-text-font-size: 1rem;
+    --form-nav-margin: 1.5rem 3.5rem  1.5rem 3.5rem;
+    --form-element-padding: .25rem;
+    --form-section-padding: 1rem 0rem 0rem 0rem;
+    --form-top-border-radius: 10px 10px 0px 0px;
+    --form-bottom-border-radius: 0px 0px 10px 10px;
+    --form-signup-margin: 1rem 0rem 0rem 0rem;
+    --form-signup-element-margin: 0rem 1rem 0rem 0rem;
+    --form-label-font-size: 1rem;
+    
+    --translate-y: translateY(15%);
+    
+    --shadow-color: rgba(0, 20, 26, 0.5);
+    --box-shadow: 5px 10px 10px var(--shadow-color);
+    --sidePanelBoxShadow: 5px 0px 8px var(--shadow-color);
+    
+    --svg-size: 2.25rem;
+
+    --card-margin:  0rem auto 1.5rem auto;
+    --card-padding: 1rem;
+
+    --sidePanelWidth: 18rem;
+    --sidePanelHeight: 100dvh;
+    --sidePanelPadding: 2rem;
+
+    --sidePanelOffset: calc(var(--sidePanelWidth) + var(--sidePanelPadding));
+}
+
+*{
+    color: var(--text-primary-color);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: none;
+    outline: none;
+    text-decoration: none;
+}
+
+@media all and (max-width: 600px) {
+    :root{
+        --form-nav-margin: 1.5rem 1.5rem 0rem 1.5rem;
+        --translate-y: translateY(15%);
+        
+    }
+}
+
+@media all and (max-width: 375px) {
+    :root{
+        --header-font-size: 2.25rem;
+        --header-padding: .5rem 0rem .5rem 0rem;
+        --form-nav-margin: 1.5rem 1.25rem 0rem 1.25rem;
+        --form-section-font-size: .85rem;
+        --form-label-font-size: .9rem;
+        --form-padding: 1.25rem;
+        --form-width: 80dvw;
+        --svg-size: 1.75rem;
+        --translate-y: translateY(25%);
+        
+    }
+}
+

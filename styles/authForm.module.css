@@ -1,0 +1,175 @@
+@import './globalVars.css';
+
+.Header{
+    font-size: var(--header-font-size);
+    text-align: center;
+    margin: var(--header-margin);
+    padding: var(--header-padding);
+    color: var(--text-primary-color)
+}
+
+.Main{
+    transform: var(--translate-y);
+    width: var(--form-width);
+    margin: var(--form-margin);
+    padding: var(--form-padding);
+    border-radius: var(--form-top-border-radius);
+    box-shadow: var(--box-shadow);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.NavSection{
+    margin: var(--form-margin);
+    padding: var(--form-section-padding);
+    border-radius: var(--form-bottom-border-radius);
+}
+
+/* .FormSection > p{
+    font-size: var(--form-section-font-smallest);
+} */
+
+.NavSection > a{
+    text-align: center;
+    font-size: var(--form-section-font-size);
+}
+
+.Element{
+    display: flex;
+    padding: .25rem;
+    flex-direction: column;
+    margin-top: .25rem;
+}
+
+.Input{
+    color: var(--text-primary-color);
+    padding: var(--form-element-padding);
+    margin: var(--form-element-margin);
+    background-color: var(--no-color);
+    border-bottom: 1px solid var(--text-primary-color);
+}
+
+.Input::placeholder{
+    color: var(--text-placeholder-color);
+}
+
+.Button{
+    margin: var(--buttonMargin);
+    border-radius: var(--button-border-radius);
+    padding: .5rem 1.5rem;
+    background-color: var(--button-background-color);
+    color: var(--text-primary-color);
+}
+
+.RememberMe{
+    margin: var(--form-element-margin);
+    align-self: center;
+    text-align: center;
+    color: var(--text-primary-color)
+}
+
+.Checkbox{
+    appearance: inherit;
+    
+    /* margin: var(--form-element-margin); */
+    border: 2px solid var(--text-primary-color);
+    border-radius: 1000px;
+    width: 15px;
+    height: 15px;
+    margin-right: .5rem;
+}
+
+.Checkbox:checked{
+    border: 2px solid var(--text-primary-color);
+    background-color: var(--button-background-color);
+    margin-right: .5rem;
+    color: var(--text-primary-color);
+}
+
+.Label{
+    font-size: var(--form-label-font-size);
+    color: var(--text-primary-color)
+}
+
+/* .Checkbox > input{
+    border: none;
+    margin: auto;
+    margin-right: .5rem;
+    text-align: center;
+} */
+
+.Link{
+    margin: var(--form-element-margin);
+    color: var(--text-primary-color);
+}
+
+.Link > svg{
+    width: 2.5rem;
+    height: 3rem;
+}
+
+.Text{
+    text-align: center;
+    font-size: var(--form-label-font-size);
+    color: var(--text-primary-color)
+}
+
+.Section{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.SignUp{
+    font-size: var(--font-size-smallest);
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    margin: var(--form-signup-margin);
+}
+
+.SignUp > p{
+    font-size: var(--form-section-font-size);
+    margin: var(--form-signup-element-margin);
+    color: var(--text-primary-color);
+}
+
+.SignUp > a{
+    font-size: var(--form-section-font-size);
+    color: var(--text-primary-color);
+}
+
+.Section > div > label{
+    font-size: var(--form-section-font-size);
+}
+
+.Section > div > a{
+    text-align: center;
+    font-size: var(--form-section-font-size);
+}
+
+.Nav{
+    margin: var(--form-nav-margin);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Nav > li > a{
+    color: var(--text-primary-color);
+}
+
+.SVGIcon{
+    fill: var(--text-primary-color);
+    width: var(--svg-size);
+    height: var(--svg-size);
+}
+
+.Card{
+    padding: 4rem;
+    margin: 3rem;
+}
+
+.Card2{
+    padding: 1rem;
+    margin: 1rem;
+}

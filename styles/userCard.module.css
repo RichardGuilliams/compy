@@ -1,0 +1,15 @@
+@import './globalVars.css';
+
+.Main{
+    padding: 1rem 0rem;
+}
+
+.Container{
+    transform: var(--translate-y);
+    width: var(--form-width);
+    margin: var(--card-margin);
+    padding: var(--card-padding);
+    border-radius: var(--form-top-border-radius);
+    box-shadow: var(--box-shadow);
+    background-color: rgba(0, 0, 0, 0.1);
+}

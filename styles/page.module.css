@@ -1,0 +1,31 @@
+@import './globalVars.css';
+
+h1{
+    font-size: 2rem;
+}
+
+.Page{
+    position: fixed;
+    background: var(--gradient);
+    min-height: 100dvh;
+    min-width: 100dvw;
+    /* height: auto; */
+}
+
+.Section{
+    margin: 2rem 0rem;
+}
+
+.SidePanel{
+    position: fixed;
+    padding: 2rem;
+    width: var(--sidePanelWidth);
+    height: var(--sidePanelHeight);
+    background-color: var(--cardColor);
+    box-shadow: var(--sidePanelBoxShadow);
+}
+
+.AdminPage{
+    margin-left: calc(var(--sidePanelOffset) + 2rem);
+    padding: 2rem;
+}
