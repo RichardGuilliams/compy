@@ -64,11 +64,7 @@ Component.prototype.newComponent = function(componentName, component){
     this.elements[componentName] = component;
     Component.prototype[componentName] = function(){
         return ComponentManager.component.parse(componentName, arguments[0]);
-    //     return ComponentManager.component[componentName.toLowerCase()](arguments[0]);
     }
-    // Component.prototype[componentName.toLowerCase()] = function(props){
-    //     return ComponentManager.component.parse(componentName, arguments[0]);
-    // }
 }
 
 Component.prototype.createComponent = function(componentName, component, props){
@@ -95,6 +91,10 @@ Component.prototype.getProps = function(props){
 Component.prototype.capitalizeFirstLetter = (string) => {
     return string[0].toUpperCase() + string.slice(1);
 }
+
+Component.prototype.setStyles = function(styles){
+    this.styles = styles;
+}
 //===================================================================
 /* Compy
 Compy is the instance of Component and it is used to create components
@@ -105,16 +105,28 @@ currently held with compy to be modified in a variety of useful ways.
 
 const Compy = new Component();
 
-//================================================================
+//===================================================================
 // Compy Components Simple
-//================================================================
+//===================================================================
 
+// Compy Icons // ===================================================
+
+Component.prototype.getIcons = function(props){
+    const elements = [];
+    for(let i = 0; i < props.list.length; i++){
+        elements.push(Component.prototype[props.list[i]](props))}
+        return elements.map((element, i) => <li key={i} >{element}</li>)
+};
+
+
+Compy.createComponent(`HomeIcon`, (props) => <svg className={props.className}  xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>)
 
 Compy.createComponent(`P`, (props) => <p style={props.style} id={props.id} name={props.name ? props.name : props.id} className={props.className}>{props.content ? props.content : props.children}</p>);
 Compy.createComponent(`Div`, (props) => <div style={props.style} id={props.id} name={props.name ? props.name : props.id} className={props.className}>{props.content ? props.content : props.children}</div>);
+Compy.createComponent(`Nav`, (props) => <nav style={props.style} id={props.id} name={props.name ? props.name : props.id} className={props.className}>{props.content ? props.content : props.children}</nav>);
 Compy.createComponent(`A`, (props) => <a style={props.style} id={props.id} name={props.name ? props.name : props.id} href={props.link} className={props.className}>{props.content ? props.content : props.children}</a>);
 Compy.createComponent(`Label`, (props) => <label htmlFor={props.for} style={props.style} id={props.name ? props.name : props.id} name={props.name ? props.name : props.id} href={props.link} className={props.className}>{props.content ? props.content : props.children}</label>);
-Compy.createComponent(`Input`, (props) => <input id={props.id} name={props.name ? props.name : props.id} href={props.link} className={props.className} placeholder={props.placeholder}>{props.content ? props.content : props.children}</input>);
+Compy.createComponent(`Input`, (props) => <input type={props.type} id={props.id} name={props.name ? props.name : props.id} href={props.link} className={props.className} placeholder={props.placeholder}>{props.content ? props.content : props.children}</input>);
 Compy.createComponent(`Form`, (props) => <form style={props.style} id={props.id} name={props.name ? props.name : props.id} onSubmit={props.submit} className={props.className}>{props.content ? props.content : props.children}</form>);
 Compy.createComponent(`H1`, (props) => <h1 style={props.style} id={props.id} name={props.name ? props.name : props.id} className={props.className}>{props.content ? props.content : props.children}</h1>);
 Compy.createComponent(`H2`, (props) => <h2 style={props.style} id={props.id} name={props.name ? props.name : props.id} className={props.className}>{props.content ? props.content : props.children}</h2>)
@@ -123,10 +135,29 @@ Compy.createComponent(`H2`, (props) => <h4 style={props.style} id={props.id} nam
 Compy.createComponent(`H2`, (props) => <h5 style={props.style} id={props.id} name={props.name ? props.name : props.id} className={props.className}>{props.content ? props.content : props.children}</h5>)
 Compy.createComponent(`H2`, (props) => <h6 style={props.style} id={props.id} name={props.name ? props.name : props.id} className={props.className}>{props.content ? props.content : props.children}</h6>)
 Compy.createComponent(`Span`, (props) => <span style={props.style} id={props.id} name={props.name ? props.name : props.id} className={props.className}>{props.content ? props.content : props.children}</span>)
+Compy.createComponent(`Li`, (props) => <li style={props.style} id={props.id} name={props.name ? props.name : props.id} className={props.className}>{props.content ? props.content : props.children}</li>)
+
+Compy.createComponent(`Ul`, (props) =>{
+    return <ul style={props.style} id={props.id} name={props.name ? props.name : props.id} className={props.className}>{
+        props.content ? props.content : props.children ? props.children :
+        !props.links instanceof Object ? props.links.map((link, i) => <li key={i}>{link}</li>) : props.links}
+    </ul>
+})
+
+
 
 Compy.createComponent(`FormInput`, (props) => <Compy.Div style={props.style} id={props.id} name={props.name ? props.name : props.id} className={props.className}>
     <Compy.Label htmlFor={props.inputName} name={props.inputName} className={props.labelClass} content={Compy.capitalizeFirstLetter(props.inputName)}/>
     <Compy.Input type={props.type} id={props.inputName} name={props.inputName} className={props.inputClass} placeholder={props.placeholder}/>
 </Compy.Div>)
+
+Compy.createComponent('FormCheckBox', (props) => <Compy.Div style={props.style} id={props.id} name={props.name ? props.name : props.id} className={props.className}>
+    <Compy.Input type={'checkBox'} id={props.inputName} name={props.inputName} className={props.inputClass}/>
+    <Compy.Label htmlFor={props.inputName} name={props.inputName} className={props.labelClass} content={props.text}/>
+</Compy.Div>)
+
+Compy.createComponent('NavBar', (props) => <Compy.Nav className={props.className} name={props.name} id={props.id}>
+    <Compy.Ul className={props.ulClass} links={props.links}/>
+</Compy.Nav>);
 
 export default Compy;

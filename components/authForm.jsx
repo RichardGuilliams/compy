@@ -1,63 +1,44 @@
 import { useEffect, useState} from 'react';
 import style from '../styles/authForm.module.css';
-import Form from './Form';
 import AuthFormSocialMedia from './authFormSocialMedia';
+import Link from './Link';
 import axios from 'axios'
-import section from './Section';
 import icon from './Icon';
 
-import Component from './Component';
 import Compy from './Compy';
 
 const AuthForm = () => {
+    setStyles();
     const Icon = new icon();
-    const component = new Component();
-    const Section  = new section();
-    Section.params({
-        cardClass: style.Card
-    });
-    
-    Form.params({
-        divClass: style.Element,
-        labelClass: style.Label,
-        inputClass: style.Input,
-        checkboxClass: style.Checkbox,
-        checkboxDivClass: style.checkBoxDiv,
-        linkClass: style.Link,
-        navClass: style.Nav
-    });
     return (
         <>
-            <div>
-                {/* <Compy.Form submit={`submitForm`} mainClass={style.Main} content={<>
-                    <Compy.H1 mainClass={style.Header} className={style.Header} content={'Mern Mart'}/>
-                    <Compy.p mainClass={style.Card2} content={'d'} className={style.Card2} string={true}/>
-                    <Compy.p mainClass={style.Card2} className={style.Card2} string={true} content={
-                        <Compy.p mainClass={style.Link} className={style.link} content={<>
-                            Now we can insert our custom tags into the content prop of our other custom tags  
-                            <Icon.Apple/></>
-                        }/>
-                    }/>
-                </>}/> */}
-                <Compy.Form submit={`submitForm`} className={style.Main}>
-                    <Compy.H2 className={style.Header} content={'Mern Mart'}/>
-                    <Compy.P className={style.P} content={`Login`}/>
-                    <Compy.FormInput className={style.Element} labelClass={style.Label} inputClass={style.Input} inputName={'email'} placeholder={'please enter your email'}/>
-                    <Compy.FormInput className={style.Element} labelClass={style.Label} inputClass={style.Input} inputName={'password'} placeholder={'please enter your password'}/>
-                </Compy.Form>
-                <form onSubmit={submitForm} className={style.Main}>
-                    <h1 className={style.Header}>Mern Mart</h1>
-                    <Form.Get type={'Input'} name={'email'} text={'Email:'} placeholder={'Enter email...'}/>
-                    <Form.Get type={'Input'} name={'password'} text={'Password:'} placeholder={'Enter password...'}/>
-                    <div className={style.Section}>
-                        <Form.Checkbox name={'remember-me'} text='Remember Me'/>
-                        <Form.A name={'remember-me'} link={'/forgotPassword'} text='Forgot Password?'/>
-                    </div>
-                    <AuthFormSocialMedia/>
-                </form>
-            </div>
+            <Compy.Form submit={submitForm} className={style.Main}>
+                <Compy.H2 className={style.Header} content={'Mern Mart'}/>
+                <Compy.P className={style.P} content={`Login`}/>
+                <Compy.FormInput className={style.Element} labelClass={style.Label} inputClass={style.Input} inputName={'email'} placeholder={'please enter your email'}/>
+                <Compy.FormInput className={style.Element} labelClass={style.Label} inputClass={style.Input} inputName={'password'} placeholder={'please enter your password'}/>
+                <Compy.Div className={style.Section}>
+                    <Compy.FormCheckBox name={'remember-me'} className={style.CheckBoxDiv} labelClass={style.Label} inputClass={style.Checkbox} inputName={'password'} text={'Remember Me'}/>
+                    <Compy.A  className={style.CheckBoxDiv} link={'/'} content={'Forgot Password?'}/>
+                </Compy.Div>
+                <Compy.Div className={style.NavSection}>
+                    <Compy.P className={style.P} content={'Or sign in with'}/>
+                    <Compy.NavBar ulClass={style.Nav} links={[<Compy.getIcons list={['HomeIcon', 'HomeIcon']} className={style.SVGIcon}/>]}/>
+                </Compy.Div>
+            </Compy.Form>
         </>
     )
+}
+
+const setStyles = () => {
+    Compy.setStyles({
+        pageClass: style.Page,
+        sectionClass: style.Section,
+        divClass: style.Div,
+        containerClass: style.Container,
+        inputClass: style.Input,
+        inputCheckboxClass: style.InputCheckbox,
+    })
 }
 
 const submitForm = async(event) => {

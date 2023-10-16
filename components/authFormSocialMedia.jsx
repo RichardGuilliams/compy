@@ -14,13 +14,12 @@ const AuthFormSocialMedia = () => {
         <>
             <div className={style.NavSection}>
                 <p className={style.Text}>Or Sign In With:</p>
-                <Form.Nav links={[
-                    <Link.Icon link={"/"} keyId={0} icon={'FacebookCircle'} divClass={style.SVGIcon}/>,
+                <Form.Nav navClass={style.Nav} links={[
+                    <Link.Icon link={"/"} keyId={0} icon={'FacebookCircle'} divClass={style.Icon}/>,
                     <Link.Icon link={"/"} keyId={1} icon={'InstagramThin'} divClass={style.Icon}/>,
                     <Link.Icon link={"/"} keyId={2} icon={'TwitterBird'} divClass={style.Icon}/>,
                     <Link.Icon link={"/"} keyId={3} icon={'Google'} divClass={style.Icon}/>
-                ]}>
-                </Form.Nav>
+                ]}/>
                 <Link.URLWithText link={'signup'} text={`Don't have an account?`} linkText={'Sign Up'}/>
             </div>
         </>

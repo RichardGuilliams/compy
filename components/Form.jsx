@@ -43,11 +43,11 @@ Form.Get = ({type, inputType, name, text, placeholder}) =>{
     return Form[type]({inputType, name, text, placeholder});
 }
 
-Form.Nav = ({links}) => {
+Form.Nav = (params) => {
     return(
         <nav>
-            <ul className={Form.navClass}>
-                {links.map((link, i) => {
+            <ul className={params.className}>
+                {params.links.map((link, i) => {
                     return <li key={i}>
                         {link}
                     </li>

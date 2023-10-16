@@ -12,13 +12,7 @@ Link.params = (options) =>{
     Link.textClass = options.textClass;
 }
 
-Link.URL = ({link, className}) => {
-    return(
-        <li className={Link.liClass}>
-            <a className={className} href={`/${link}`}>{convertLinkToText(link)}</a>
-        </li>
-    )
-}
+Link.URL = (props) => <a className={props.className} href={`/${props.link}`}>{convertLinkToText(props.link)}</a>
 
 Link.Phone = ({link, className, phoneNumber}) => {
     return(
@@ -61,17 +55,13 @@ Link.Icon = ({link, icon}) => {
     )
 }
 
-Link.URLWithText = ({link, text, linkText, keyId}) => {
-    return(
-        <div key={keyId} className={Link.divClass}>
-            <p className={Link.textClass}>{text}</p>
-            <a className={Link.linkClass} href={link}>{linkText}</a>
-        </div>
-    )
-}
+Link.URLWithText = (props) => <div key={props.keyId} className={props.divClass}>
+    <p className={props.textClass}>{props.text}</p>
+    <a className={props.linkClass} href={props.link}>{props.linkText}</a>
+</div>
 
-Link.Get = ({ LinkName, link, icon, phoneNumber, email, text, linkText, keyId}) => {
-    return Link[LinkName]({link, icon, phoneNumber, email, text, linkText, keyId});
+Link.Get = (props) => {
+    return Link[props.LinkName](props);
 }
 
 function convertLinkToText(link){
