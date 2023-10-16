@@ -1,4 +1,5 @@
-import Icon from './Icon';
+import icon from './Icon';
+const Icon = new icon();
 
 function Link(){
     // console.log('This is a static class');

@@ -55,7 +55,7 @@ Section.prototype.card = function(){
 }
 
 Section.prototype.createElement = function(element, id){
-    this.elements.set(id, element);
+    this.elements[id] = element;
     return element;
 };
 

@@ -4,26 +4,19 @@ import Form from './Form';
 import AuthFormSocialMedia from './authFormSocialMedia';
 import axios from 'axios'
 import section from './Section';
-import Loop from '../js/Loop';
-import Icon from './Icon';
+import icon from './Icon';
 
 import Component from './Component';
+import Compy from './Compy';
 
 const AuthForm = () => {
+    const Icon = new icon();
     const component = new Component();
-    component.addPart(`<div>{.value}  {.hi}</div>`)
-    component.createComponent('MyDiv', {value: 'd'});
     const Section  = new section();
-    const ItemCard1 = new section();
-    ItemCard1.addElement(<h1>{}</h1>, 'header')
-        .addElement(<p>It was dynamically built with js</p>, 'p1')
-        .addChild(<p>This was added as well</p>)
-        .addElement(<p>Because of this we have an additional way to create cards</p>, 'p2');
-
     Section.params({
         cardClass: style.Card
     });
-
+    
     Form.params({
         divClass: style.Element,
         labelClass: style.Label,
@@ -33,17 +26,26 @@ const AuthForm = () => {
         linkClass: style.Link,
         navClass: style.Nav
     });
-    
     return (
         <>
-            <component.MyDiv hi={'this is the hi value'} value={'This is the new value'}/>
-            {ItemCard1.renderElements()}
-            {Section.card('card-0', style.Card, 'Hello this is a card')}
-            {Section.card('card-1',  style.Main, 'Card 2')}
-            {Section.get('card', 'card-2', style.Card, 'Hi')}
-            <Section.Card id={'card-2'} divClass={style.Card} content={<Icon.Apple/>}/>
             <div>
-                <form onSubmit={submitForm}  className={style.Main}>
+                {/* <Compy.Form submit={`submitForm`} mainClass={style.Main} content={<>
+                    <Compy.H1 mainClass={style.Header} className={style.Header} content={'Mern Mart'}/>
+                    <Compy.p mainClass={style.Card2} content={'d'} className={style.Card2} string={true}/>
+                    <Compy.p mainClass={style.Card2} className={style.Card2} string={true} content={
+                        <Compy.p mainClass={style.Link} className={style.link} content={<>
+                            Now we can insert our custom tags into the content prop of our other custom tags  
+                            <Icon.Apple/></>
+                        }/>
+                    }/>
+                </>}/> */}
+                <Compy.Form submit={`submitForm`} className={style.Main}>
+                    <Compy.H2 className={style.Header} content={'Mern Mart'}/>
+                    <Compy.P className={style.P} content={`Login`}/>
+                    <Compy.FormInput className={style.Element} labelClass={style.Label} inputClass={style.Input} inputName={'email'} placeholder={'please enter your email'}/>
+                    <Compy.FormInput className={style.Element} labelClass={style.Label} inputClass={style.Input} inputName={'password'} placeholder={'please enter your password'}/>
+                </Compy.Form>
+                <form onSubmit={submitForm} className={style.Main}>
                     <h1 className={style.Header}>Mern Mart</h1>
                     <Form.Get type={'Input'} name={'email'} text={'Email:'} placeholder={'Enter email...'}/>
                     <Form.Get type={'Input'} name={'password'} text={'Password:'} placeholder={'Enter password...'}/>
@@ -51,7 +53,6 @@ const AuthForm = () => {
                         <Form.Checkbox name={'remember-me'} text='Remember Me'/>
                         <Form.A name={'remember-me'} link={'/forgotPassword'} text='Forgot Password?'/>
                     </div>
-                    <button className={style.Button}>Sign In</button>
                     <AuthFormSocialMedia/>
                 </form>
             </div>
