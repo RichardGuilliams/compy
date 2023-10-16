@@ -1,15 +1,10 @@
 import { useEffect, useState} from 'react';
 import style from '../styles/authForm.module.css';
-import AuthFormSocialMedia from './authFormSocialMedia';
-import Link from './Link';
 import axios from 'axios'
-import icon from './Icon';
-
 import Compy from './Compy';
 
 const AuthForm = () => {
     setStyles();
-    const Icon = new icon();
     return (
         <>
             <Compy.Form submit={submitForm} className={style.Main}>
@@ -23,7 +18,7 @@ const AuthForm = () => {
                 </Compy.Div>
                 <Compy.Div className={style.NavSection}>
                     <Compy.P className={style.P} content={'Or sign in with'}/>
-                    <Compy.NavBar ulClass={style.Nav} links={[<Compy.getIcons list={['HomeIcon', 'HomeIcon']} className={style.SVGIcon}/>]}/>
+                    <Compy.NavBar ulClass={style.Nav} links={[<Compy.getIcons list={['IconHome', 'IconHome']} className={style.SVGIcon}/>]}/>
                 </Compy.Div>
             </Compy.Form>
         </>

@@ -1,5 +1,4 @@
-import icon from './Icon';
-const Icon = new icon();
+
 
 function Link(){
     // console.log('This is a static class');
@@ -38,22 +37,22 @@ Link.Messenger = ({link}) => {
     )
 }
 
-Link.IconWithText = ({link, icon}) => {
-    return(
-        <li className={link.liClass}>
-            <Icon.Get IconName={icon} className={Link.iconClass}/>
-            <a className={Link.linkClass} href={link}>{convertLinkToText(link)}</a>
-        </li>
-    )
-}
+// Link.IconWithText = ({link, icon}) => {
+//     return(
+//         <li className={link.liClass}>
+//             <Icon.Get IconName={icon} className={Link.iconClass}/>
+//             <a className={Link.linkClass} href={link}>{convertLinkToText(link)}</a>
+//         </li>
+//     )
+// }
 
-Link.Icon = ({link, icon}) => {
-    return(
-            <a className={Link.linkClass} href={link}>
-                <Icon.Get IconName={icon}/>
-            </a>
-    )
-}
+// Link.Icon = ({link, icon}) => {
+//     return(
+//             <a className={Link.linkClass} href={link}>
+//                 <Icon.Get IconName={icon}/>
+//             </a>
+//     )
+// }
 
 Link.URLWithText = (props) => <div key={props.keyId} className={props.divClass}>
     <p className={props.textClass}>{props.text}</p>
